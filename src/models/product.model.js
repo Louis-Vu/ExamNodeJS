@@ -25,4 +25,4 @@ const product_schema = new mongoose.Schema({
         
     }
 });
-module.exports = mongoose.model("ProductCollection",product_schema);
+module.exports = mongoose.model("exam",product_schema);
