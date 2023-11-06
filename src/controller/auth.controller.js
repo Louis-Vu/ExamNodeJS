@@ -24,6 +24,22 @@ exports.postProduct= function(req,res){
        } catch (error) {
         return res.send(error)
     }
-
 }
+exports.deleteProduct = async (req, res) => {
+    const productId = req.params.id;
+    console.log(productId);
+    try {
+      //xóa sản phẩm dựa trên ID
+      const deletedProduct = await productModel.findByIdAndDelete(productId);
+  
+      if (!deletedProduct) {
+        return res.send("Product not found");
+      }
+  
+      res.send("Deleted successfully");
+    } catch (err) {
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+};
  
