@@ -1,0 +1,26 @@
+
+.conten {
+    display: flex; 
+    align-items: center; 
+}
+
+.conten h1 {
+    margin-right: 20px; 
+}
+
+.add {
+    margin-right: 50px
+}
+
+.add button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+}
+
+
+.content {
+    margin-top: 20px;
+}

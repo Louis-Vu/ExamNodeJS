@@ -1,29 +1,38 @@
+require("dotenv").config();
+
 const express = require("express");
-const app = express(); // host - app
+const app = express();
 const port = 2210;
 
 app.listen(port,function(){
-    console.log("Server is running...");
+    console.log("Sever in running ...")
 })
+
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({express: true}));
+app.use(express.urlencoded({extended:true}));
+//Connect database
 
-// connect database
-const mongoose = require("mongoose");
-const usersModels = require("./models/users.models");
-const Server = "mongodb://localhost:27017/";
-const db_name = "mongoose";
-mongoose.connect(`${Server}/${db_name}`)
-.then(()=>{
-    console.log(`Conneted database ${db_name}`);
+require("./src/db/connect");""
 
-}).catch(err=>{
-    console.log(err);
-})
+//session
+const session = require("express-session");
+app.use(
+    session({
+        resave: true,
+        saveUninitialized: true,
+        secret:process.env.SESSION_SECRET,
+        cookie:{
+            maxAge: Number(process.env.COOKIE_MAX_AGE),//millisecond
+            secure: false
+        }
+    })
+);
 
-// routes
-app.get("/",function(req,res){
-    res.render("home/home");
-})
+
+const web_route = require("./src/routes/web.route");
+app.use("/",web_route);
+
+const auth_route = require("./src/routes/auth.route");
+app.use("/auth",auth_route);

@@ -1,0 +1,37 @@
+body {
+    background-color: #cdcdcd;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.button{
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    width: 100px;
+}
