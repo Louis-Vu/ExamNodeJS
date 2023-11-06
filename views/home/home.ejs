@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="/examcss/home.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Products</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="/examcss/home.css" rel="stylesheet">
 </head>
 <body>
-    <div class="conten">
-        <h1>Products</h1>
+
+<div class="container mt-3">
+    <h1>Products</h1>
     <a class="add" href="/auth/add">
         <button >Add </button>
-    </a>
-    </div>
-    
-    <section class="content">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">ProductCode</th>
-                    <th scope="col">ProductName</th>
-                    <th scope="col">ProductDate</th>
-                    <th scope="col">ProductOriginPrice</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">ProductStoreCode</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <% product.forEach((product)=>{ %>
-                        <tr>
-                            <th scope="row"></th>
-                             <td><%- product.productCode %></td>
-                             <td><%- product.productName %></td>
-                             <td><%- product.productDate %></td>
-                             <td><%- product.productOriginPrice %></td>
-                             <td><%- product.quantity %></td>
-                             <td><%- product.productStoreCode %></td>
+    </a>    
+   <table class="table table-bordered table-sm">   
+   <thead class="thead-dark">
+      <tr>
+        <th>ProductCode</th>
+        <th>ProductName</th>
+        <th>ProductDate</th>
+        <th>ProductOriginPricee</th>
+        <th>Quantity</th>
+        <th>ProductStoreCode</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% product.forEach((product)=>{ %>
+            <tr>
+            
+                 <td><%- product.productCode %></td>
+                 <td><%- product.productName %></td>
+                 <td><%- product.productDate %></td>
+                 <td><%- product.productOriginPrice %></td>
+                 <td><%- product.quantity %></td>
+                 <td><%- product.productStoreCode %></td>
 
-                            <td>
-                               
-                                <a href="/auth/product/delete/<%= product._id %>" class="btn btn-danger btn-sm">Delete</a>
-                              </td>
-                              <td>
-                               
-                                <a href="/auth/product/delete/<%= product._id %>" class="btn btn-warning btn-sm">Update</a>
-                              </td>
+                <td>
+                   
+                    <a href="/auth/product/delete/<%= product._id %>" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                  <td>
+                   
+                    <a href="/auth/product/delete/<%= product._id %>" class="btn btn-warning btn-sm">Update</a>
+                  </td>
 
-                        </tr>
-                       
+            </tr>
+           
 
-                    <% }) %>
-                        
-    
-                </tbody>
-        </table>
-        
-      </section>
+        <% }) %>
+            
+
+    </tbody>
+  </table>
+  
+</div>
+
 </body>
-
-
 </html>
